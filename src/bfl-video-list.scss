@@ -1,0 +1,19 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+body > .container {
+  flex: 1;
+}
+
+footer.fixed-bottom {
+  height: 100px;
+}
+
+li a.nav-link {
+  text-align: center;
+}
