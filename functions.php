@@ -1,5 +1,9 @@
 <?php 
 
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
 function init(){
 
   wp_enqueue_script( 'jquery' );
@@ -87,12 +91,12 @@ function prefix_bs5_dropdown_data_attribute( $atts, $item, $args ) {
 // });
 
 
-// 如果是主页，跳转到 bfl-video-list
+// 如果是不是 bfl-video-list 和 wp-admin，跳转到 bfl-video-list
 add_action( 'template_redirect', function() {
 
   $redirect_page = home_url( '/bfl-video-list/' );
   
-  if( is_front_page() && !is_page( 'bfl-video-list' ) ) {
+  if( !is_page( 'bfl-video-list' ) && !is_page( 'wp-admin' )) {
 
     wp_safe_redirect( $redirect_page );
     exit;
@@ -115,12 +119,12 @@ add_filter( 'the_password_form', function() {
 
   global $post;
   $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-  $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">' . 
-  '<div class="input-group"><input name="post_password" id="' . 
-  $label . '" type="password" class="form-control" placeholder="Password" size="20" maxlength="20" />
-  <button type="submit" name="Submit" class="btn btn-success d-flex justify-content-center align-items-center" value="' . 
+  $o = '<form class="" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">' . 
+  '<div class="input-group input-group-lg" style="width: 400px;"><input name="post_password" id="' . 
+  $label . '" type="password" class="form-control rounded-pill" placeholder="Password" size="20" maxlength="20" />
+  <button type="submit" name="Submit" class="btn btn-success rounded-pill d-flex justify-content-center align-items-center" value="' . 
   esc_attr__( "Submit" ) . '" ><i class="px-3 h4 fas fa-arrow-right mb-0"></i></button>' . 
-  '</div><div class="h6 mt-3"><span class="text-muted">'. __("Note：") .'</span>'. __( "您将要访问的内容有密码保护，请输入密码前往！" ). '</div>'.
+  '</div><p class="mt-3"><span class="text-muted">'. __("Note：") .'</span>'. __( "您将要访问的内容有密码保护，请输入密码前往！" ). '</p>'.
   '</form>';
 
   return $o;  
