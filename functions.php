@@ -1,9 +1,5 @@
 <?php 
 
-@ini_set( 'upload_max_size' , '64M' );
-@ini_set( 'post_max_size', '64M');
-@ini_set( 'max_execution_time', '300' );
-
 function init(){
 
   wp_enqueue_script( 'jquery' );
@@ -96,7 +92,7 @@ add_action( 'template_redirect', function() {
 
   $redirect_page = home_url( '/bfl-video-list/' );
   
-  if( !is_page( 'bfl-video-list' ) && !is_page( 'wp-admin' )) {
+  if( is_front_page() && !is_page( 'bfl-video-list' ) && !is_page( 'wp-admin') ){
 
     wp_safe_redirect( $redirect_page );
     exit;
@@ -111,7 +107,7 @@ add_action( 'template_redirect', function() {
 // set the life span of the post password cookie
 add_filter( 'post_password_expires', function() {
 
-  return time() + 24 * 3600;
+  return time() + 3 * 3600;
 
 } );
 

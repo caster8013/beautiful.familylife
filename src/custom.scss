@@ -18,3 +18,22 @@ li a.nav-link {
   text-align: center;
 }
 
+.inner-title {
+  display: none;
+}
+
+@media only screen and (max-width: 576px) {
+  .row-top-title {
+    display: none;
+  } 
+
+  .inner-title {
+    display: inline;
+  }
+
+  .each-row-title {
+    justify-content: center;
+  }
+
+}
+

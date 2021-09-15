@@ -7,7 +7,7 @@
   <title><?php the_title(); ?></title>
   <?php wp_head(); ?>
 </head>
-<body>
+<body class="bg-light">
 
 <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark" role="navigation">
   <div class="container">

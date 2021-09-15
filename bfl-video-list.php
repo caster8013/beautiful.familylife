@@ -55,12 +55,12 @@
         </li>
       </ul>
 
-      <div class="tab-content pb-3" id="myTabContent">
+      <div class="tab-content py-5" id="myTabContent">
 
 
         <div class="tab-pane fade show active" id="home" role="tabpanel">
 
-          <?php echo do_shortcode('[wpfd_category id="3"]'); ?>
+          <?php get_template_part( "section/include", "wpdm-tools" ); ?>
 
         </div>
 
@@ -68,7 +68,7 @@
 
         <div class="tab-pane fade" id="profile" role="tabpanel">
 
-          <?php echo do_shortcode('[wpfd_category id="4"]'); ?>
+          <?php get_template_part( "section/include", "wpdm-AYouthSeries" ); ?>
 
         </div>
 
@@ -76,7 +76,7 @@
 
         <div class="tab-pane fade" id="contact" role="tabpanel">
 
-          <?php echo do_shortcode('[wpfd_category id="5"]'); ?>
+          <?php get_template_part( "section/include", "wpdm-AFilmSeries" ); ?>
 
 
         </div>
